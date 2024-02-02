@@ -1,0 +1,192 @@
+/* This part of the code it the one that controls the information inside the box. The background of the page, the size the text typing styles */
+ .container { 
+    color: #3b3b3b;
+    font-family: "Open Sans", Arial, sans-serif;
+    max-width: 93.5rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+    background-color: #fcf8f8fa;
+}
+/* This part of the code is the one that turns the likes and comments vissible whenever the mouse pointer hovers over the images */
+.visually-hidden {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+/* This part of the code, codes the profile image. the position of the image the b ackground of the image and the style */
+
+.profile-image {
+    object-position: right;
+    border-radius: 50%;}
+    
+    .profile-image img {
+        border-radius: 50%;
+        background-color: #3b3b3b;
+    }
+ /* This part of the code is about the profile user name, the styling and font*/   
+.profile-user-name {
+    display: inline-block;
+    font-size: 3.2rem;
+    font-weight: 300;
+    margin-left: 0%;
+}
+/* This part of the code is for the follow button, the styling, font, background & color*/
+.btn-follow {
+    font-size: 10px;
+    background-color: #e6e0e0;
+    border-radius: 12px;
+    padding: 15px;
+    cursor: pointer;
+    object-position: right;
+}
+/* This part of the code is for the message button, the styling, font, background & color*/
+.btn-messages {
+    font-size: 10px;
+    background-color: #e3dddd;
+    border-radius: 20px;
+    padding: 15px;
+    margin-left: 2rem;
+    cursor: pointer;
+
+}
+/* This part of the code is for the profile stats list it styles every element in the Ul element*/
+.profile-stats {
+    margin-top: 2.3rem;
+}
+
+.profile-stats li {
+    display: inline-block;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    margin-right: 4rem;
+    cursor: pointer;
+}
+
+.profile-stats li:last-of-type {
+    margin-right: 0;
+}
+
+.profile-bio {
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-top: 2.3rem;
+}
+
+.profile-real-name,
+.profile-stat-count,
+.follow-btn,
+.message-btn {
+    font-weight: 600;
+}
+/*This part of the code is for the whole galery elements. images the spaces the hover over pictures */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
+    padding-bottom: 3px;
+} 
+
+.gallery-item {
+    position: relative;
+    flex: 1 0 22rem;
+    margin: 1rem;
+    color: #fbfafa;
+    cursor: pointer;
+    width: 250PX;
+    height: 320PX;
+}
+/*This part of the code is for the hovering that happens when the mouse pointer touches the images. It makes the likes to appear and shows also whisch image we at */
+.gallery-item:hover .gallery-item-info,
+.gallery-item:focus .gallery-item-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+} 
+
+.gallery-item-info {
+    display: none;
+}
+
+.gallery-item-info li {
+    display: inline-block;
+    font-size: 1.7rem;
+    font-weight: 600;
+}
+
+.gallery-item-likes {
+    margin-right: 2px;
+}
+
+.gallery-item-type {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2.5rem;
+}
+
+.fa-clone,
+.fa-comment {
+    transform: rotateY(180deg);
+}
+/*This part is for the sizes of the images */
+.gallery-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* This part is for the loader thst appears on the bottom of the page */
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 8px solid #999;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    animation: loader 700ms linear infinite;
+    margin: 0 auto;
+}
+/*Key frames for the loader to be able to transform and rotate in a circle, also for it to brake*/
+@keyframes loader {
+    to {
+        transform: rotate(360deg);
+        border-top-color: transparent;
+    }
+}
+/*This part of my code moving down helps with the positioning of my pictures to make them appear in the sequence they appearing in*/
+
+@supports (display: grid) {
+    .profile {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: repeat(3, auto);
+        grid-column-gap: 3rem;
+        align-items: center;
+    }
+
+    .profile-image {
+        grid-row: 1 / -1;
+    }
+
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+        grid-gap: 2rem;
+    }
+
+    .profile-image,
+    .profile-user-settings,
+    .profile-stats,
+    .profile-bio,
+    .gallery-item,
+    .gallery {
+        width: auto;
+        margin: 0;
+    }
